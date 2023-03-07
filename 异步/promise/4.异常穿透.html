@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise 异常穿透和终止调用</title>
+  </head>
+  <body>
+    <script>
+      /* 异常穿透:在Promise对象链式调用的最后使用.catch()方法可以将任意调用过程中的异常抛出 */
+      /* 终止调用在需要终止调用的地方返回一个Promise空对象(Promise空对象的状态为padding)
+         只有改变Promise对象才会执行回调,padding不会改变对象,回调自然会终止 */
+      function fn() {
+        return new Promise((res, rej) => {
+          return res("ok");
+        });
+      }
+      fn()
+        .then((data) => {
+          console.log(data);
+          return new Promise((res, rej) => {
+            return res("ok1");
+          });
+        })
+        .then((data) => {
+          console.log(data);
+          return new Promise((res) => {
+            return res("ok2");
+          });
+        })
+        .then((data) => {
+          console.log(data);
+          return new Promise((res) => {}); //终止回调下面的不会执行
+        })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((res) => {
+          console.warn(res);
+        });
+    </script>
+  </body>
+</html>

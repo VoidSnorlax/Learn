@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1.通过回调函数拿去异步数据
+      //假定一个需求:
+      /* 
+        1.买鸡
+        2.杀鸡
+        3.wth炖鸡(炖鸡需要一定的时间)点奶茶(点奶茶需要一定的时间)
+        4.吃鸡
+        5.回家
+        */
+      let people = "wth";
+      function work(somethings) {
+        console.log(somethings);
+      }
+      function milkTea(callback) {
+        setTimeout(() => {
+          console.log("点奶茶");
+          callback("吃");
+        }, 1000);
+      }
+      function workingTime(somethings, callback) {
+        setTimeout(() => {
+          console.log((people += somethings));
+          callback(work); //通过回调函数成功解决下    面的问题
+        }, 3000);
+      }
+      work("买鸡");
+      work("杀鸡");
+      workingTime("炖鸡", milkTea);
+
+      /* 因为JS的执行机制(同步先跑,跑完异步操作进入队列异步在跑) */
+      /* 导致最后结果为:
+          买鸡=>杀鸡=>吃鸡(这些都是同步操作)=>炖鸡(异步)  
+       */
+    </script>
+  </body>
+</html>

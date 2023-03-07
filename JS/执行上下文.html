@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let a = 1;
+    console.log(a);
+    function fn() {
+      let a = 10;
+      console.log(a);
+    }
+    fn();
+    console.log(
+      "函数里的a会优先查找自己的执行上下文中有没有该属性(通过作用域链查找),如果找不到就调用全局的变量"
+    );
+    console.log("-----------------");
+    obj = {
+      name: "pz",
+    };
+    let name = "a";//这里会出现一个有趣的现象(使用let，const生命的变量和方法不作为全局变量的属性和方法,但是可以调用)
+    function fn1() {
+      console.log(this.name);
+      console.log(this);
+    }
+    fn1.call(obj);
+    fn1();//
+    console.log('fn1()输出的结果第一个为空,因为:this.name(因为是name在全局中是let声明),第二个是weindow(毋庸置疑)');
+    console.log('fn1.call(obj),通过call改变了this的指向(this指向了obj),所以第一个输出为pz,第二个输出为obj对象');
+  </script>
+</body>
+
+</html>

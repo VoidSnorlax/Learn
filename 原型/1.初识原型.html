@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = ['wth']
+        console.log(arr.concat('吴天昊'));//可以调用原型上存在的方法
+        console.log('--------------------------------------------------------');
+        let obj = {}
+        let OBJ = {}
+        //getPrototypeOf()获取某个对象的原型
+        console.log(Object.getPrototypeOf(obj) == Object.getPrototypeOf(OBJ));//二者的原型相同
+        
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 如果对象里面和原型上都存在相同的方法(优先调用对象里面的) */
+        let obj = {
+            show() {
+                return 'pz'
+            }
+        }
+        obj.__proto__.show = function () {
+            return 'pzcb'
+        }
+        console.log(obj.show());
+    </script>       
+
+</body>
+
+</html>

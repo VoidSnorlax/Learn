@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = { name: 'a' }
+        let b = { names: 'b' }
+        Object.setPrototypeOf(a, b)
+        console.log('names' in a);//in方法不管检测原本对象里是否存在某个属性还会检测原型上是否存在
+        console.log('---------');
+        console.log(a.hasOwnProperty('name'));//只想检测对象上是否存在的属性(hasOwnProperty())
+        //遍历对象
+        for (const key in a) {
+            if (a.hasOwnProperty(key)) {
+                const element = key;
+                console.log(element);//只会遍历本身对象上的属性
+            }
+        }
+        for (const key in a) {
+            console.log(key);//会遍历出原型链上的对象属性
+        }
+    </script>
+
+</body>
+
+</html>

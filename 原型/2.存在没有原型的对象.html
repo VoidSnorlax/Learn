@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let pz = { name: 'pz' }
+        console.log(pz.hasOwnProperty('name'));//pz对象调用原型上的.hasOwnProperty()方法
+        let obj = Object.create(null, {
+            name: {
+                value: 'pz'
+            }
+        })
+        //通过 Object.create(null,{})方法可以创建一个没有原型的对象
+        console.log(obj.hasOwnProperty('name'));//报错,obj没有.hasOwnProperty()方法 =>(因为其没有原型)
+    </script>
+
+</body>
+
+</html>

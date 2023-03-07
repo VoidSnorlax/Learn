@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            name: 'pz',
+            data: [1, 22, 13, 17],
+            this(value) {
+                console.log(value);
+            }
+        }
+
+        Object.setPrototypeOf(obj, {
+            max(data) {
+                return data.sort((a, b) => b - a)[0]
+            }
+        })
+        obj.this(obj.name)//pz
+        console.log(obj.max(obj.data));//调用原型方法实现找最大值 22
+        let lessons = {
+            class: { js: 100, vue: 90, ts: 89 }
+        }
+        console.log(Math.max.apply(this, Object.values(lessons.class)))//盗用最大值方法给找出数组中最大值元素
+        console.log(Math.max(...Object.values(lessons.class)));//正常写法
+        console.log(obj.max.call(this, Object.values(lessons.class)));//通过call盗用另一个原型上的方法  100
+    </script>
+
+</body>
+
+</html>

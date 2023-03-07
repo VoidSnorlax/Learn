@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 对象进行解构时必须与对象的键名相同 */
+        let obj = {
+            name: 'pz',
+            age: 18
+        }
+        const json = [{
+            id: 1,
+            uname: 'apple'
+        }]
+        const obj1 = {
+            name: 'pz',
+            friend: {
+                boy1: 'wgy',
+                boy2: '6'
+            }
+        }
+        let { name, age } = obj
+        let { name: pzname } = obj//可以对键进行改名(旧变量名:新变量名) name=>pzname
+        let [{ id, uname }] = json//对数组对象进行解构
+        let { friend: { boy1 } } = obj1//对复杂对象进行解构
+        console.log(name, age);
+        console.log(pzname);
+        console.log(boy1);
+    </script>
+
+</body>
+
+</html>

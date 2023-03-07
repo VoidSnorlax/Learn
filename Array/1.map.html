@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let json = [{ name: 'pz', age: 15 }, { name: 'wgy', age: 13 }, { name: 'wth', age: 11 }, { name: 'old6', age: 10 }]
+        json = json.map((item) => {
+            return {
+                age: item.age,
+                names: item.name || 'bendan'
+            }
+
+        })
+        console.log(json);
+    </script>
+
+</body>
+
+</html>

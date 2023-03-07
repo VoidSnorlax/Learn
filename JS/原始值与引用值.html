@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        let a=1//原始值
+        let obj =new Object();//引用类型
+        obj.name='pz'//动态添加
+        obj.age=1
+        console.log(obj);
+        console.log('----------------------------------------------------');
+
+        let obj1=new Object();//引用值的复制会相互影响
+        let obj2=obj1;
+        obj1.name='dog'
+        console.log(obj2,obj1);//obj2|obj1的值一样
+        console.log('----------------------------------------------');
+        console.log('这里涉及到深浅拷贝的问题');
+        console.log('--------------------------------------');
+         
+        function fn(count){
+            return count+=20
+        }
+        let count=10
+        console.log(count);
+        console.log(fn(count));
+        console.log('函数的参数传递本质上是一个值传递,这样才能保住外部的变量不被修改');
+        console.log('上面是一个简单的原始值传递');
+        console.log('----------------------');
+
+    
+    </script>
+  </body>
+</html>

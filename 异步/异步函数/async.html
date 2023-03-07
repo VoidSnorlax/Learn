@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    
+        /* async可以将一个函数标记为异步函数
+           async的返回值是一个promise对象
+           async函数可以直接获取一个正确状态promise对象的值  */
+        async function fn() {
+            let p = new Promise((res) => {
+                return res('异步')
+            })
+            let res = await p
+            console.log(res);
+
+        }
+        function fn2() {
+            console.log('同步');
+        }
+        /* 如果async函数中接受的是一个错误状态的Promise对象要将错误进行捕获 */
+        async function fn1() {
+            let err = new Promise((res, rej) => {
+                rej('g')
+            })
+
+            try {
+                let error = await err
+            } catch (error) {
+                console.log(error);
+
+            }
+        }
+
+        fn()
+        fn2()
+    </script>
+
+</body>
+
+</html>

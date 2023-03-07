@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let name = "clever coder";
+      let person = {
+        name: "foocoder",
+        hello: function (sth) {
+          console.log("this", this); //person(因为hello方法是person调用的)
+          let that = this;
+          console.log("that", that); //person
+          let sayhello = function (sth) {
+            console.log(that.name + " says " + sth);
+            console.log(name); //clever coder
+            /* 因为sayhello是一个回调函数由hello方法调用 =>导致sayhello是全局调用
+               所以sayhello方法中的this指向全局
+               通过在hello方法中定义that保留this实现内部的函数的指向正确(希望他的指向与外层函数一致) */
+          };
+          sayhello(sth);
+        },
+      };
+
+      person.hello("hello world"); //foocoder says hello world
+    </script>
+  </body>
+</html>

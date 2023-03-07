@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 原始值引用类型:number,string,Boolean */
+      let str = "a";
+      str.color = "red";
+      console.log(str instanceof String); //false(instanceof检测原始值返回的是false)
+      console.log(str.color); //undefined
+      console.log("——————————————————————————————————————");
+
+      let str1 = new String();
+      str1.color = "red";
+      console.log(str1.color);
+      console.log("这里可以清晰的看到通过new创建的和字面量创建的区别");
+      console.log("--------------------------------");
+
+      let str2 = new Object("haha");
+      console.log(str2 instanceof String); //true(str2是new Object的实例化对象 instanceof检查的是引用类型)
+      console.log(typeof str2); //str2是new Object的实例化对象
+      console.log("通过工厂方法创建字符串");
+      console.log("================================================");
+
+      console.log("永远不要使用布尔对象！！！！！！！");
+      let res = new Boolean(false); //res 是通过构造函数创建的 是一个实例对象(实例对象转成布尔为真)
+      let value = res && true; //这里相互比较的的是实例对象和true
+      console.log(`${value}=>相当于true&&true`);
+
+      let a = 1;
+      let b = 2;
+      console.log(!!(a & b)); //!!感叹号为强转
+    </script>
+  </body>
+</html>

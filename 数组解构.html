@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 将数组的单元值快速批量的赋值给一些列变量 */
+        let arr = [1, 2, 3]
+        let [num1, num2, num3] = arr
+        console.log(num1);
+        console.log(num2);
+        console.log(num3);
+        /* 交换变量 */
+        let a = 1
+        let b = 2;//这里必须加分号
+        /* 立即执行函数也必须加分号
+           代码以数组开始，上一行代码也必须以分号结束    */
+        [b, a] = [a, b]
+        console.log(a, b);
+        function test() {
+            return [100, 90]
+        }
+        let [max, min] = test()
+        console.log(max, min);
+    </script>
+
+</body>
+
+</html>

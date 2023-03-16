@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<canvas width="600" height="400"></canvas>
+
+<body>
+    <script>
+        let canvas = document.querySelector('canvas')//获取canvas节点
+        let pen = canvas.getContext('2d')//调用绘制方法
+        //绘制起点
+        pen.moveTo(100, 100)
+        //其他点的设置可以有多个
+        pen.lineTo(100, 200)
+        pen.lineTo(200, 100)
+        pen.fillStyle = 'red'//设置颜色
+        pen.fill()//填充
+        pen.closePath()//闭合线条
+        pen.stroke()//绘制
+    </script>
+
+</body>
+
+</html>

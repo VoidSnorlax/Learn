@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<canvas width="400" height="400"></canvas>
+
+<body>
+    <script>
+        let canvas = document.querySelector('canvas')
+        let pen = canvas.getContext('2d')
+        //strokeRect()方法,传入四个参数(距离画布左边的位置，距离画布上面位置,矩形的长，矩形的款)
+        pen.strokeRect(100, 100, 200, 100)
+    </script>
+
+</body>
+
+</html>

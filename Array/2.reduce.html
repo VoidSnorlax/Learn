@@ -10,8 +10,15 @@
 
 <body>
     <script>
+        /* 
+            reduce函数
+            传入一个回调函数和一个参数(起始值)
+            1.如果没有起始值,则上一次值以数组的第一个元素的值
+            2.每一次循环,把返回值作为 下一次循环 的上一次值
+            3.如果有起始值,则起始值作为上一次值
+        */
         const arr = [1, 2, 3]
-        //reduce函数会对数组进行累加https://github.com/VoidSnorlax/learn.git
+        //reduce函数会对数组进行累加
         let res = arr.reduce((pre, cur) => {
             return pre + cur
         })
